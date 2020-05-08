@@ -1,0 +1,38 @@
+@menu-height: 2.5rem;
+
+#ol-ide-menu {
+    min-width: 80rem;
+    width: 100%;
+    height: @menu-height;
+    // position: fixed;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: @panel-background;
+    z-index: 1000;
+    top: 0;
+
+    .ol-ide-menu-button {
+        cursor: pointer;
+        width: fit-content;
+        min-width: 4rem;
+        height: @menu-height;
+        color: @panel-color-white;
+        background-color: @panel-background;
+        font-size: 1rem;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+
+        &:hover {
+            background-color: @panel-subpanel-background;
+            outline: none;
+        }
+
+        &:focus-within {
+            background-color: @panel-subpanel-background;
+            outline: none;
+        }
+    }
+}

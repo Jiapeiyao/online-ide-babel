@@ -1,0 +1,30 @@
+@import './style/color.less';
+@import './style/items.less';
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+#ol-ide-main {
+  // margin-top: @menu-height;
+  // height: calc(100vh - @menu-height);
+  height: 100vh;
+  min-height: 45rem;
+  width: 100vw;
+  min-width: 80rem;
+  // bottom: 0;
+  border: 1px solid #ca032e;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+
+.ol-ide-split-pane {
+  position: absolute;
+  // margin-top: @menu-height;
+  left: 0;
+  top: @menu-height;
+  width: 100%;
+  height: calc(100% - @menu-height);
+}

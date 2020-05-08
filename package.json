@@ -1,0 +1,76 @@
+{
+  "name": "online-ide-babel",
+  "version": "1.0.0",
+  "description": "online-ide based on babel/standalone",
+  "main": "dist/start.js",
+  "scripts": {
+    "prestart": "bash prestart.sh",
+    "watch": "webpack --config webpack.config.js --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Jiapeiyao/online-ide-babelt.git"
+  },
+  "author": "Jiapeiyao",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Jiapeiyao/online-ide-babel/issues"
+  },
+  "homepage": "https://github.com/Jiapeiyao/online-ide-babel#readme",
+  "dependencies": {
+    "@babel/standalone": "^7.9.6",
+    "antd": "^4.2.0",
+    "react": "^16.9.0",
+    "react-dom": "^16.9.0",
+    "react-monaco-editor": "^0.36.0",
+    "react-split-pane": "^0.1.91"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0",
+    "@babel/plugin-proposal-class-properties": "^7.8.3",
+    "@babel/plugin-proposal-object-rest-spread": "^7.9.5",
+    "@babel/plugin-syntax-optional-chaining": "^7.8.3",
+    "@babel/plugin-transform-runtime": "^7.9.0",
+    "@babel/preset-env": "^7.9.5",
+    "@babel/preset-react": "^7.9.4",
+    "@babel/preset-typescript": "^7.9.0",
+    "@hot-loader/react-dom": "^16.12.0",
+    "@types/express": "^4.17.3",
+    "@types/react": "^16.9.0",
+    "@types/react-dom": "^16.9.0",
+    "@types/react-hot-loader": "^4.1.1",
+    "@types/webpack": "^4.41.12",
+    "autoprefixer": "^9.7.4",
+    "awesome-typescript-loader": "^5.2.1",
+    "babel-loader": "^8.1.0",
+    "css-loader": "^3.4.2",
+    "file-loader": "^6.0.0",
+    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-template": "^6.2.0",
+    "less": "^3.11.1",
+    "less-loader": "^5.0.0",
+    "monaco-editor-webpack-plugin": "^1.9.0",
+    "nodemon": "^2.0.3",
+    "postcss-loader": "^3.0.0",
+    "react-hot-loader": "^4.12.19",
+    "speed-measure-webpack-plugin": "^1.3.3",
+    "style-loader": "^1.1.3",
+    "thread-loader": "^2.1.3",
+    "tslint": "^6.0.0",
+    "typescript": "^3.8.3",
+    "url-loader": "^3.0.0",
+    "webpack": "^4.42.0",
+    "webpack-cli": "^3.3.11",
+    "webpack-dev-server": "^3.10.3"
+  },
+  "nodemonConfig": {
+    "ignore": [
+      "dist/website/*, dist/project/*"
+    ],
+    "watch": [
+      "dist/start.js",
+      "dist/webpack.config.js"
+    ],
+    "delay": "2500"
+  }
+}

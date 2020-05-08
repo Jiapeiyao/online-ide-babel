@@ -1,0 +1,33 @@
+{
+    "compilerOptions": {
+        "outDir": "./dist",
+        "sourceMap": true,
+        "strict": true,
+        // "noImplicitReturns": true,
+        // "noImplicitAny": true,
+        // "noImplicitThis": true,
+        // "skipDefaultLibCheck": true,
+        "module": "commonjs",
+        "moduleResolution": "node",
+        "target": "es6",
+        "jsx": "react",
+        "allowSyntheticDefaultImports": true,
+        "alwaysStrict": true,
+        "experimentalDecorators": true,
+        "downlevelIteration": true,
+        "esModuleInterop": true,
+        "forceConsistentCasingInFileNames": true,
+        "resolveJsonModule": true,
+        "lib": [
+            "DOM", "esnext", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020"
+        ],
+        "baseUrl": ".",
+        "types": ["node", "express"]
+    },
+    "include": [
+        "./**/*"
+    ],
+    "exclude": [
+        "node_modules", "dist", "release", "out"
+    ]
+}
