@@ -1,5 +1,6 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
+import { transform } from '@babel/standalone';
+
 
 interface ContextState {
     tsx: string;
@@ -27,6 +28,7 @@ const defaultState: ContextState = {
     // tslint:disable-next-line: quotemark
     tsx: [
         "const Button = antd.Button;",
+        "",
         "function UserCode() {",
         "    return <Button>Hello World</Button>;",
         "}",
@@ -49,17 +51,25 @@ export default function Root({ children }: { children: React.ReactNode }) {
     const [context, dispatch] = React.useReducer(contextReducer, defaultState);
 
     React.useEffect(() => {
-        const newNode = document.createElement('SCRIPT');
-        newNode.setAttribute('type', 'text/babel');
-        newNode.setAttribute('data-presets', 'env,react,typescript');
-        newNode.setAttribute('data-plugins', 'proposal-object-rest-spread,proposal-class-properties,transform-runtime');
-        newNode.innerHTML = context.tsx;
-        document.body.appendChild(document.querySelector('#babel')!);
-        document.body.appendChild(newNode);
+        try {
+            const code = transform(context.tsx, {
+                filename: 'entry.tsx',
+                presets: ['env', 'react', 'typescript'],
+                plugins: ['proposal-object-rest-spread', 'proposal-class-properties', 'transform-runtime'] 
+            }).code;
+    
+            const newNode = document.createElement('SCRIPT');
+            console.log(code);
+            newNode.innerHTML = code || '';
+            document.body.appendChild(newNode);
+    
+            return () => {
+                document.body.removeChild(newNode);
+            };
+        } catch (err) {
+            console.warn(err);
+        }
 
-        return () => {
-            document.body.removeChild(newNode);
-        };
     }, [context.tsx]);
 
     return (

@@ -1,6 +1,5 @@
 import React from 'react';
 import { GlobalContext } from '../Root';
-// import Babel from '@babel/standalone';
 
 
 export default function Menu() {

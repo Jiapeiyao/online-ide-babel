@@ -18,6 +18,7 @@ const config = {
     devServer: {
         contentBase: distPath,
     },
+    devtool: "source-map",
     module: {
         rules: [
             {
