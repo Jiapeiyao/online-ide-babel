@@ -11,7 +11,7 @@ export default function App() {
 
     React.useEffect(() => {
         const resizeHandler = (_: UIEvent) => {
-            setHeight(window.innerHeight);
+            setHeight(window.innerHeight - 2.5 * 16);
             setWidth('100%');
         }
         window.addEventListener('resize', resizeHandler);
@@ -19,18 +19,16 @@ export default function App() {
     });
 
     return (
-        <React.Fragment>
-            <Root>
-                <div id='ol-ide-main'>
-                    <Menu />
-                    <SplitPane className='ol-ide-split-pane' split='vertical'
-                        size={window.innerWidth * 0.5} onChange={setWidth}
-                    >
-                        <Editor width={width} height={height}/>
-                        <Preview />
-                    </SplitPane>
-                </div>
-            </Root>
-        </React.Fragment>
+        <Root>
+            <div id='ol-ide-main'>
+                <Menu />
+                <SplitPane split='vertical' size={window.innerWidth * 0.5} onChange={setWidth}
+                    style={{ position: 'relative' }}
+                >
+                    <Editor width={width} height={height}/>
+                    <Preview />
+                </SplitPane>
+            </div>
+        </Root>
     );
 }
