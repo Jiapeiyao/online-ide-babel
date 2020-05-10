@@ -1,5 +1,5 @@
 import React from 'react';
-import { transform } from '@babel/standalone';
+import { compile } from '../../utils/compile';
 
 
 interface ContextState {
@@ -27,18 +27,23 @@ const contextReducer: React.Reducer<ContextState, Action> = (preState: ContextSt
 const defaultState: ContextState = {
     // tslint:disable-next-line: quotemark
     tsx: [
-        "const Button = antd.Button;",
-        "",
-        "function UserCode() {",
-        "    return <Button>Hello World</Button>;",
-        "}",
-        "",
-        "ReactDOM.render(",
-        "    <UserCode />,",
-        "    document.getElementById('preview')",
-        ");",
-        "",
-        "console.log('The World');",
+        `import { Button, Input as In } from 'antd';`,
+        ``,
+        `const Dr = antd.Drawer;`,
+        ``,
+        `function UserCode() {`,
+        `  return <>`,
+        `    <Button>Hello World</Button>`,
+        `    <In></In>`,
+        `  </>`,
+        `};`,
+        ``,
+        `ReactDOM.render(`,
+        `  <UserCode />,`,
+        `  document.getElementById('preview')`,
+        `);`,
+        ``,
+        `console.log('The World');`,
     ].join('\n'),
     hash: '',
 }
@@ -52,11 +57,7 @@ export default function Root({ children }: { children: React.ReactNode }) {
 
     React.useEffect(() => {
         try {
-            const code = transform(context.tsx, {
-                filename: 'entry.tsx',
-                presets: ['env', 'react', 'typescript'],
-                plugins: ['proposal-object-rest-spread', 'proposal-class-properties', 'transform-runtime'] 
-            }).code;
+            const code = compile(context.tsx);
     
             const newNode = document.createElement('SCRIPT');
             console.log(code);

@@ -5,11 +5,12 @@
   "main": "dist/start.js",
   "scripts": {
     "prestart": "bash prestart.sh",
-    "watch": "webpack --config webpack.config.js --mode development --watch"
+    "watch": "webpack --config webpack.config.js -d --mode development --watch",
+    "build": "webpack --config webpack.config.js -p --mode production"
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Jiapeiyao/online-ide-babelt.git"
+    "url": "git+https://github.com/Jiapeiyao/online-ide-babel.git"
   },
   "author": "Jiapeiyao",
   "license": "MIT",
@@ -34,13 +35,10 @@
     "@babel/preset-env": "^7.9.5",
     "@babel/preset-react": "^7.9.4",
     "@babel/preset-typescript": "^7.9.0",
-    "@hot-loader/react-dom": "^16.12.0",
     "@types/babel__core": "^7.1.7",
     "@types/babel__standalone": "^7.1.2",
-    "@types/express": "^4.17.3",
     "@types/react": "^16.9.0",
     "@types/react-dom": "^16.9.0",
-    "@types/react-hot-loader": "^4.1.1",
     "@types/webpack": "^4.41.12",
     "autoprefixer": "^9.7.4",
     "awesome-typescript-loader": "^5.2.1",
@@ -52,9 +50,7 @@
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "monaco-editor-webpack-plugin": "^1.9.0",
-    "nodemon": "^2.0.3",
     "postcss-loader": "^3.0.0",
-    "react-hot-loader": "^4.12.19",
     "speed-measure-webpack-plugin": "^1.3.3",
     "style-loader": "^1.1.3",
     "thread-loader": "^2.1.3",
@@ -64,15 +60,5 @@
     "webpack": "^4.42.0",
     "webpack-cli": "^3.3.11",
     "webpack-dev-server": "^3.10.3"
-  },
-  "nodemonConfig": {
-    "ignore": [
-      "dist/website/*, dist/project/*"
-    ],
-    "watch": [
-      "dist/start.js",
-      "dist/webpack.config.js"
-    ],
-    "delay": "2500"
   }
 }

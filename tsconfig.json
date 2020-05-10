@@ -3,9 +3,6 @@
         "outDir": "./dist",
         "sourceMap": true,
         "strict": true,
-        // "noImplicitReturns": true,
-        // "noImplicitAny": true,
-        // "noImplicitThis": true,
         // "skipDefaultLibCheck": true,
         "module": "commonjs",
         "moduleResolution": "node",
@@ -21,8 +18,7 @@
         "lib": [
             "DOM", "esnext", "ES2015", "ES2016", "ES2017", "ES2018", "ES2019", "ES2020"
         ],
-        "baseUrl": ".",
-        "types": ["node", "express"]
+        "baseUrl": "."
     },
     "include": [
         "./**/*"
