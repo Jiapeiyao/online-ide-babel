@@ -3,7 +3,7 @@
         "adjacent-overload-signatures": true,
         "no-any": true,
         "curly": true,
-        "quotemark": [true, "single"],
+        "quotemark": [true, "single", "jsx-double"],
         "no-import-side-effect": [true, {"ignore-module": "(\\.html|\\.css|\\.less|\\.json)$"}],
         "no-parameter-reassignment": true,
         "no-reference": true,
