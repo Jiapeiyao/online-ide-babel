@@ -9,22 +9,22 @@ import types from '@babel/types';
  *     In = antd.Input;
  */
 export function importUmd({ types: t }: { types: typeof types }) {
-    return {
-        visitor: {
-            ImportDeclaration: (path: any, state: any) => {
-                path.replaceWith(t.variableDeclaration(
-                    'const',
-                    path.node.specifiers.map((specifier: types.ImportSpecifier) => 
-                        t.variableDeclarator(
-                            specifier.local,
-                            t.memberExpression(
-                                t.identifier(path.node.source.value),
-                                specifier.imported
-                            )
-                        )
-                    )
-                ));
-            },
-        },
-    };
+  return {
+    visitor: {
+      ImportDeclaration: (path: any, state: any) => {
+        path.replaceWith(t.variableDeclaration(
+          'const',
+          path.node.specifiers.map((specifier: types.ImportSpecifier) =>
+            t.variableDeclarator(
+              specifier.local,
+              t.memberExpression(
+                t.identifier(path.node.source.value),
+                specifier.imported
+              )
+            )
+          )
+        ));
+      },
+    },
+  };
 }

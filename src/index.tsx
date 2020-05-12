@@ -5,6 +5,6 @@ import './index.less';
 import 'antd/dist/antd.min.css';
 
 ReactDOM.render(
-    <App />,
-    document.getElementById('app')
+  <App />,
+  document.getElementById('app')
 );

@@ -6,7 +6,9 @@
   "scripts": {
     "prestart": "bash prestart.sh",
     "watch": "webpack --config webpack.config.js -d --mode development --watch",
-    "build": "webpack --config webpack.config.js -p --mode production"
+    "start": "webpack-dev-server --config webpack.config.js",
+    "build": "webpack --config webpack.config.js -p --mode production",
+    "serve": "http-server dist/"
   },
   "repository": {
     "type": "git",
@@ -21,9 +23,11 @@
   "dependencies": {
     "@babel/standalone": "^7.9.6",
     "antd": "^4.2.0",
+    "express": "^4.17.1",
     "react": "^16.9.0",
     "react-dom": "^16.9.0",
     "react-monaco-editor": "^0.36.0",
+    "monaco-editor": "^0.20.0",
     "react-split-pane": "^0.1.91"
   },
   "devDependencies": {
@@ -47,6 +51,7 @@
     "file-loader": "^6.0.0",
     "html-webpack-plugin": "^3.2.0",
     "html-webpack-template": "^6.2.0",
+    "http-server": "^0.12.3",
     "less": "^3.11.1",
     "less-loader": "^5.0.0",
     "monaco-editor-webpack-plugin": "^1.9.0",

@@ -7,7 +7,7 @@ const distPath = path.resolve(__dirname, 'dist');
 
 const postcssLoader = {
   loader: 'postcss-loader',
-  options:  {
+  options: {
     plugins: [require('autoprefixer')],
     javascriptEnabled: true,
   },
@@ -21,7 +21,7 @@ const tsLoader = {
 };
 
 const config = {
-  entry: { 
+  entry: {
     app: './src/index.tsx',
   },
   output: {
@@ -107,7 +107,6 @@ const config = {
     new MonacoWebpackPlugin({
       // available options are documented at https://github.com/Microsoft/monaco-editor-webpack-plugin#options
       languages: ['typescript', 'less'],
-      features: [],
       // features: ['accessibilityHelp', 'bracketMatching', 'caretOperations', 'clipboard', 'codeAction', 'codelens', 'colorDetector', 'comment', 'contextmenu', 'coreCommands', 'cursorUndo', 'dnd', 'find', 'folding', 'fontZoom', 'format', 'gotoError',  'gotoLine', 'gotoSymbol', 'hover', 'iPadShowKeyboard', 'inPlaceReplace', 'inspectTokens', 'linesOperations', 'links', 'multicursor', 'parameterHints', 'quickCommand', 'quickOutline', 'referenceSearch', 'rename', 'smartSelect', 'snippets', 'suggest', 'toggleHighContrast', 'toggleTabFocusMode', 'transpose', 'wordHighlighter', 'wordOperations', 'wordPartOperations']
     }),
   ],
