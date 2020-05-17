@@ -59,6 +59,7 @@ function declareModules(moduleNames: string[]) {
   await loadLib('@types/react/index.d.ts');
   await loadLib('@types/react/global.d.ts');
   await loadLib('@types/react-dom/index.d.ts');
+  await loadLib('@types/antd/index.d.ts');
 })().catch(console.warn);
 
 

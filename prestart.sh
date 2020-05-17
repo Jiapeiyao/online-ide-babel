@@ -14,3 +14,7 @@ cp node_modules/@types/react/global.d.ts dist/@types/react/global.d.ts
 
 mkdir -p dist/@types/react-dom
 cp node_modules/@types/react-dom/index.d.ts dist/@types/react-dom/index.d.ts
+
+dts-bundle --name antd --main node_modules/antd/es/index.d.ts
+mkdir -p dist/@types/antd
+cp node_modules/antd/es/antd.d.ts dist/@types/antd/index.d.ts
