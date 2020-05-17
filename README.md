@@ -4,9 +4,9 @@ Using ant-design as the library.
 
 ## running in dev
 ```bash
-npm run watch
+npm run start
 ```
-open dist/index.html
+open localhost:8080
 
 ## build
 ```bash
