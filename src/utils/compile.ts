@@ -1,7 +1,7 @@
 import { transform, registerPlugin } from '@babel/standalone';
-import { importUmd } from './transform-import-umd-object';
+import transferUmd from './transform-umd';
 
-registerPlugin('transform-import-umd-object', importUmd);
+registerPlugin('transform-umd', transferUmd);
 
 export default function compile(tsx: string) {
   const compiledCode = transform(tsx, {
@@ -10,11 +10,20 @@ export default function compile(tsx: string) {
     plugins: [
       'proposal-object-rest-spread',
       'proposal-class-properties',
-      'transform-import-umd-object'
+      [
+        'transform-umd',
+        {
+          externals: {
+            react: 'React',
+            'react-dom': 'ReactDOM',
+            antd: 'antd',
+          },
+        },
+      ],
     ],
   }).code;
 
   console.log(compiledCode);
 
-  return `(function () {${compiledCode}})();`
+  return `(function () {${compiledCode}})();`;
 }

@@ -18,15 +18,6 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    const resizeHandler = (_: UIEvent) => {
-      setHeight(window.innerHeight - 2.5 * 16);
-      setWidth('100%');
-    };
-    window.addEventListener('resize', resizeHandler);
-    return () => window.removeEventListener('resize', resizeHandler);
-  });
-
-  React.useEffect(() => {
     const container = document.getElementById('preview');
     if (!container) {
       throw Error('Element with id `preview` not found');
@@ -53,9 +44,9 @@ export default function App() {
       <Menu />
       <SplitPane
         split="vertical"
-        defaultSize={window.innerWidth * 0.5}
+        defaultSize={'50%'}
         onChange={setWidth}
-        style={{ position: 'relative' }}
+        style={{ position: 'relative', width: '100%', minWidth: '80rem' }}
       >
         <Editor
           initialContent={context.tsx}

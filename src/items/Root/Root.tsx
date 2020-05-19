@@ -33,8 +33,6 @@ const defaultState: ContextState = {
     `import { Input as In } from 'antd';`,
     `import Button from 'antd/Button';`,
     ``,
-    `const Dr = antd.Drawer;`,
-    ``,
     `function UserCode() {`,
     `  return <>`,
     `    <Button>Hello World</Button>`,
