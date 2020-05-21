@@ -38,35 +38,6 @@ const config = {
         use: ['thread-loader', tsLoader],
         exclude: /node_modules/,
       },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 1,
-      //       },
-      //     },
-      //     postcssLoader
-      //   ],
-      //   exclude: /\.module\.css$/,
-      // },
-      // {
-      //   test: /\.css$/,
-      //   use: [
-      //     'style-loader',
-      //     {
-      //       loader: 'css-loader',
-      //       options: {
-      //         importLoaders: 1,
-      //         modules: true,
-      //       },
-      //     },
-      //     postcssLoader
-      //   ],
-      //   include: /\.module\.css$/,
-      // },
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']

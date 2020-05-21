@@ -9,5 +9,5 @@ ReactDOM.render(
   <Root>
     <App />
   </Root>,
-  document.getElementById('app')
+  document.getElementById('online-ide')
 );

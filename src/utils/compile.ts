@@ -5,7 +5,7 @@ registerPlugin('transform-umd', transferUmd);
 
 export default function compile(tsx: string) {
   const compiledCode = transform(tsx, {
-    filename: 'entry.tsx',
+    filename: 'index.tsx',
     presets: ['env', 'react', 'typescript'],
     plugins: [
       'proposal-object-rest-spread',
@@ -22,8 +22,6 @@ export default function compile(tsx: string) {
       ],
     ],
   }).code;
-
-  console.log(compiledCode);
 
   return `(function () {${compiledCode}})();`;
 }

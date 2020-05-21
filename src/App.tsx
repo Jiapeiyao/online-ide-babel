@@ -6,11 +6,13 @@ import Preview from './items/Preview';
 import { GlobalContext } from './items/Root';
 import SplitPane from 'react-split-pane';
 import compile from './utils/compile';
+import { Alert } from 'antd';
 
 export default function App() {
   const [width, setWidth] = React.useState('100%' as number | string);
   const [height, setHeight] = React.useState('100%' as number | string);
   const [context, dispatch] = React.useContext(GlobalContext);
+  const previewRef: React.RefObject<HTMLDivElement>  = React.createRef();
 
   const onContentChange = (content: string) => {
     console.log(dispatch);
@@ -18,25 +20,29 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    const container = document.getElementById('preview');
-    if (!container) {
-      throw Error('Element with id `preview` not found');
+    const previewContainer = document.getElementById('app');
+    if (!previewContainer) {
+      console.warn('Element with id `app` not found');
+      return;
     }
-    const node = document.createElement('SCRIPT');
     try {
       const code = compile(context.tsx);
-      ReactDOM.unmountComponentAtNode(container);
-      node.innerHTML = code;
+      window.onerror = event => {
+        ReactDOM.render(
+          <Alert message={'Error'} description={typeof event === 'string' ? event : event.toString()} type="error" />,
+          previewContainer
+        );
+      } 
+      eval(code);
+      return () => {
+        window.onerror = null;
+      };
     } catch (err) {
-      ReactDOM.unmountComponentAtNode(container);
-      container.innerText = err;
+      ReactDOM.render(
+        <Alert message={'Error'} description={err.toString()} type="error" />,
+        previewContainer
+      );
     }
-    document.body.appendChild(node);
-    
-    return () => {
-      ReactDOM.unmountComponentAtNode(container);
-      document.body.removeChild(node);
-    };
   }, [context.tsx]);
 
   return (
@@ -53,7 +59,7 @@ export default function App() {
           width={width} height={height}
           onContentChange={onContentChange}
         />
-        <Preview />
+        <Preview ref={previewRef}/>
       </SplitPane>
     </div>
   );

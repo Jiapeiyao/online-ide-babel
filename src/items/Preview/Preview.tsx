@@ -1,5 +1,9 @@
 import React from 'react';
 
-export default function Preview() {
-  return <div id="preview"></div>;
+interface PreviewProps {
+  ref?: React.RefObject<HTMLDivElement>;
+}
+
+export default function Preview({ ref }: PreviewProps) {
+  return <div id="app" ref={ref}></div>;
 }

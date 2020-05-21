@@ -30,10 +30,11 @@ const defaultState: ContextState = {
   // tslint:disable-next-line: quotemark
   tsx: [
     `import React from 'react';`,
+    'import ReactDOM from \'react-dom\';',
     `import { Input as In } from 'antd';`,
     `import Button from 'antd/Button';`,
     ``,
-    `function UserCode() {`,
+    `function App() {`,
     `  return <>`,
     `    <Button>Hello World</Button>`,
     `    <In></In>`,
@@ -41,8 +42,8 @@ const defaultState: ContextState = {
     `};`,
     ``,
     `ReactDOM.render(`,
-    `  <UserCode />,`,
-    `  document.getElementById('preview')`,
+    `  <App />,`,
+    `  document.getElementById('app')`,
     `);`,
     ``,
     `console.log('The World!');`,
@@ -52,7 +53,7 @@ const defaultState: ContextState = {
 
 const defaultContext: [ContextState, Dispatch] = [
   defaultState,
-  (_: Action) => console.warn('Dispatch function of Root Context has not been initialized.'),
+  (_: Action) => console.error('`dispatch` can only be used in the context provider\'s children.'),
 ];
 
 const GlobalContext = React.createContext(defaultContext);
