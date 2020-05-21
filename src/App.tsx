@@ -15,7 +15,6 @@ export default function App() {
   const previewRef: React.RefObject<HTMLDivElement>  = React.createRef();
 
   const onContentChange = (content: string) => {
-    console.log(dispatch);
     dispatch({ type: 'tsx', tsx: content });
   };
 

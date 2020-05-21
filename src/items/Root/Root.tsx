@@ -17,7 +17,6 @@ const contextReducer: React.Reducer<ContextState, Action> = (
 ) => {
   switch (action.type) {
     case 'tsx': {
-      console.log(action.tsx);
       return { ...preState, tsx: action.tsx || '' };
     }
     default: {

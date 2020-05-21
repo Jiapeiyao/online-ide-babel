@@ -47,7 +47,7 @@ export default function transferUmd({ types: t }: { types: typeof types }) {
 
 function getVariableDeclarators(path: Path, t: typeof types, externals: Record<string, string>): types.VariableDeclarator[] {
   const variableDeclarators: types.VariableDeclarator[] = [];
-  path.node.specifiers.forEach((specifier: types.ImportDeclaration['specifiers'][0]) => {
+  path.node.specifiers.forEach((specifier: types.ImportDeclaration['specifiers'][number]) => {
     if (t.isImportDefaultSpecifier(specifier) || t.isImportNamespaceSpecifier(specifier)) {
       if (isExpectedImport(specifier.local.name, path.node.source.value, externals)) {
         variableDeclarators.push(t.variableDeclarator(
