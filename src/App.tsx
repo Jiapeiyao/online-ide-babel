@@ -19,8 +19,7 @@ export default function App() {
   };
 
   React.useEffect(() => {
-    const previewContainer = document.getElementById('app');
-    if (!previewContainer) {
+    if (!previewRef.current) {
       console.warn('Element with id `app` not found');
       return;
     }
@@ -29,7 +28,7 @@ export default function App() {
       window.onerror = event => {
         ReactDOM.render(
           <Alert message={'Error'} description={typeof event === 'string' ? event : event.toString()} type="error" />,
-          previewContainer
+          previewRef.current
         );
       } 
       eval(code);
@@ -39,7 +38,7 @@ export default function App() {
     } catch (err) {
       ReactDOM.render(
         <Alert message={'Error'} description={err.toString()} type="error" />,
-        previewContainer
+        previewRef.current
       );
     }
   }, [context.tsx]);
@@ -58,7 +57,7 @@ export default function App() {
           width={width} height={height}
           onContentChange={onContentChange}
         />
-        <Preview ref={previewRef}/>
+        <Preview previewRef={previewRef}/>
       </SplitPane>
     </div>
   );
